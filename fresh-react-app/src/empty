@@ -1,0 +1,153 @@
+// import { useEffect, useState } from "react";
+
+// import Header from "./components/Header";
+// import Profile from "./components/Profile";
+// import Stats from "./components/Stats";
+// import AddTask from "./components/AddTask";
+// import TaskList from "./components/TaskList";
+// import Footer from "./components/Footer";
+
+// import "./App.css";
+
+// function App() {
+//   const [user, setUser] = useState(null);
+
+//   const [darkMode, setDarkMode] = useState(false);
+
+//   const [tasks, setTasks] = useState([
+//     {
+//       id: 1,
+//       name: "Complete React Assignment",
+//       priority: "High",
+//       completed: false,
+//     },
+//     {
+//       id: 2,
+//       name: "Read JavaScript Notes",
+//       priority: "Medium",
+//       completed: true,
+//     },
+//     {
+//       id: 3,
+//       name: "Practice LeetCode",
+//       priority: "Low",
+//       completed: false,
+//     },
+//   ]);
+
+//   // Fetch user information when page loads
+//   useEffect(() => {
+//     const fetchUser = async () => {
+//       const userData = {
+//         name: "Kamalnath",
+//         email: "kamalchinna@gmail.com",
+//         role: "AI & Data Science Student",
+//       };
+
+//       setUser(userData);
+//     };
+
+//     fetchUser();
+//   }, []);
+
+//   // Add task
+//   const addTask = (newTask) => {
+//     setTasks([...tasks, newTask]);
+//   };
+
+//   // Complete task
+//   const completeTask = (id) => {
+//     setTasks(
+//       tasks.map((task) =>
+//         task.id === id
+//           ? { ...task, completed: true }
+//           : task
+//       )
+//     );
+//   };
+
+//   // Delete task
+//   const deleteTask = (id) => {
+//     setTasks(
+//       tasks.filter((task) => task.id !== id)
+//     );
+//   };
+
+//   return (
+//     <div className={darkMode ? "app dark" : "app"}>
+
+//       <Header
+//         darkMode={darkMode}
+//         setDarkMode={setDarkMode}
+//       />
+
+//       <main className="container">
+
+//         <Profile user={user} />
+
+//         <Stats tasks={tasks} />
+
+//         <AddTask addTask={addTask} />
+
+//         <TaskList
+//           tasks={tasks}
+//           onComplete={completeTask}
+//           onDelete={deleteTask}
+//         />
+
+//       </main>
+
+//       <Footer />
+
+//     </div>
+//   );
+// }
+
+// export default App
+
+
+
+import React from "react";
+import { useState } from "react";
+import Box from "./box"
+// import "./App.css"
+import Accordion from "./Accordion";
+import Modelbox from "./Modelbox";
+
+function App(event){
+  const [data, setData]=useState()
+  const [Email, setemail]=useState()
+  const [input, setinput]=useState()
+  function handlesubmit(event){
+    event.preventDefault();
+    alert([data,Email])
+  }
+  function regester(event){
+    setData(event.target.value)
+    console.log(event.target.value)
+  }
+  function emails(event){
+    setemail(event.target.value)
+    console.log(event.target.value)
+  }
+  return(
+    // <div className="box">
+    //     <form onSubmit={handlesubmit} >
+    //           <h3>Name:</h3>
+    //           <input onChange={regester}></input>
+    //           <h3>Email:</h3>
+    //           <input onChange={emails}></input>
+    //           <h3>Age:</h3>
+    //           <input onChange={emails}></input><br></br>
+    //           <button type="submit">summit</button>
+    //     </form>
+    //     {/* <Box/> */}
+    // </div>
+    <>
+    <Modelbox/>
+    <Accordion/>
+    </>
+  )
+}
+
+export default App

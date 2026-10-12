@@ -1,0 +1,93 @@
+/* *{
+    font-family: popp;
+} */
+/* .top{
+    background-color: white;
+    height: 70px;
+    margin: 10px;
+}
+.line{
+    height: 40px;
+    border: 1px solid black;
+    margin: 10px 10px 0px 30px;
+}
+.box{
+    width: 577px;
+    border: 1px solid white;
+    margin:40px 40px;
+    background-color: white;
+    border-radius:10px ;
+    padding: 30px;
+}
+.learn{
+    margin:200px 0px 0px 60px;
+    font-size: 60px;
+    color: white;
+}
+span{
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+input,select{
+    height: 33px;
+    width: 225px;
+    border: 1px solid rgb(169, 166, 166);
+    font-size: 18px;
+    padding: 2px 2px;
+    margin: 10px 0px;
+}
+label{
+    font-size: 16px;
+}
+button{
+    height: 45px;
+    width: 130px;
+    border-radius: 25px;
+    background-color: rgb(149, 226, 34);
+    font-size: 20px;
+    margin: 30px 50px 20px 200px;
+}
+
+/* second one shop*/
+
+.imageShoe {
+    width: 200px;
+    height: 255px;
+    border-radius: 30px;
+    padding: 10px
+}
+
+.containerCard {
+    width: 225px;
+    height: 450px;
+}
+
+.headingShoe {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 3px;
+    padding: 7px;
+}
+
+.priceShoe {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.strikeShoe {
+    font-size: 16px;
+    color: grey;
+    margin-top: 10%;
+
+}
+
+.priceContainerShoe {
+    display: flex;
+    margin: 3px;
+    padding: 7px
+}
+
+.buttonShoe {
+    margin: 0px;
+} */

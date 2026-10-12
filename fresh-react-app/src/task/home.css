@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f8fafc;
+  color: #1e293b;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+  background: black;
+  color: #38bdf8;
+}
+.navlinks {
+  display: flex;
+  gap: 20px;
+}
+.navlinks a {
+  color: white;
+  text-decoration: none;
+}
+.navlinks a:hover {
+  color: #38bdf8;
+}
+.home {
+  text-align: center;
+  padding: 100px 20px;
+}
+.home h1 {
+  font-size: clamp(32px, 5vw, 54px);
+}
+.home h1,
+.home h2 {
+  color: #0284c7;
+}
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 25px 0;
+}
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #0284c7;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background: #0369a1;
+}

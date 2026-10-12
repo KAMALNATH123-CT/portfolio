@@ -1,0 +1,19 @@
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+.project-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 5px 18px #0f172a0d;
+}
+.project-card h2 {
+  color: #0284c7;
+}
+.tech {
+  color: #64748b;
+  font-size: 14px;
+}

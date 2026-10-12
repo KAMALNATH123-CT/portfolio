@@ -1,0 +1,10 @@
+.page {
+  max-width: 850px;
+  margin: 50px auto;
+  padding: 30px;
+  line-height: 1.8;
+}
+.page h1 {
+  color: #0284c7;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,17 @@
+.contact-form {
+  display: grid;
+  gap: 15px;
+  max-width: 550px;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+}
+.success {
+  color: #15803d;
+}
