@@ -1,0 +1,387 @@
+<!-- import React from 'react';
+import styles from './Header.module.css';
+
+export default function Header() {
+  return (
+    <header className={styles.header}>
+      <h1>🎭 Face Matcher</h1>
+      <p>Find the target face hidden in the grid below!</p>
+    </header>
+  );
+}
+
+
+.header {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+
+
+
+import React from 'react';
+import styles from './ScoreSection.module.css';
+
+export default function ScoreSection({ score, chances }) {
+  return (
+    <section className={styles.scoreSection}>
+      <div className={styles.statBox}>
+        Score
+        <span className={styles.scoreValue}>{score}</span>
+      </div>
+      <div className={styles.statBox}>
+        Chances Left
+        <span className={styles.chancesValue}>{chances}</span>
+      </div>
+    </section>
+  );
+}
+
+
+
+
+
+.scoreSection {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.statBox {
+  text-align: center;
+}
+
+.scoreValue {
+  color: #3498db;
+  font-size: 1.5rem;
+  display: block;
+}
+
+.chancesValue {
+  color: #e74c3c;
+  font-size: 1.5rem;
+  display: block;
+}
+
+
+
+
+import React from 'react';
+import styles from './GameSection.module.css';
+
+export default function GameSection({
+  gridFaces,
+  targetFace,
+  message,
+  messageColor,
+  isGameActive,
+  wrongSelections,
+  correctSelection,
+  btnText,
+  onCardClick,
+  onActionBtnClick
+}) {
+  return (
+    <section className={styles.gameSection}>
+      <div className={styles.targetContainer}>
+        <p>Find this face:</p>
+        <div className={styles.targetDisplay}>{targetFace}</div>
+      </div>
+
+      <div className={styles.message} style={{ color: messageColor }}>
+        {message}
+      </div>
+
+      <div className={styles.grid}>
+        {gridFaces.map((face, index) => {
+          let cardClass = styles.card;
+          if (correctSelection === index) cardClass += ` ${styles.correct}`;
+          if (wrongSelections.includes(index)) cardClass += ` ${styles.wrong}`;
+
+          return (
+            <div
+              key={index}
+              className={cardClass}
+              onClick={() => isGameActive && onCardClick(face, index)}
+            >
+              {isGameActive || correctSelection === index || wrongSelections.includes(index) ? face : '❓'}
+            </div>
+          );
+        })}
+      </div>
+
+      {!isGameActive && (
+        <button className={styles.actionBtn} onClick={onActionBtnClick}>
+          {btnText}
+        </button>
+      )}
+    </section>
+  );
+}
+
+
+
+.gameSection {
+  background-color: white;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.targetContainer {
+  text-align: center;
+  background-color: #f8f9fa;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  border: 2px dashed #3498db;
+}
+
+.targetDisplay {
+  font-size: 3.5rem;
+  margin-top: 0.5rem;
+  animation: bounce 0.5s ease infinite alternate;
+}
+
+.message {
+  font-size: 1.2rem;
+  font-weight: bold;
+  min-height: 1.8rem;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 350px;
+  width: 100%;
+}
+
+.card {
+  background-color: #ecf0f1;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  border: 2px solid #bdc3c7;
+  user-select: none;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  background-color: #e2e8f0;
+}
+
+.correct {
+  background-color: #2ecc71 !important;
+  border-color: #27ae60 !important;
+}
+
+.wrong {
+  background-color: #e74c3c !important;
+  border-color: #c0392b !important;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.actionBtn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.actionBtn:hover {
+  background-color: #2980b9;
+}
+
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+
+
+
+
+import React from 'react';
+import styles from './Footer.module.css';
+
+export default function Footer() {
+  return (
+    <footer className={styles.footer}>
+      <p>&copy; 2026 Memory Face Game. Built with React Components.</p>
+    </footer>
+  );
+}
+
+
+
+
+
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+  margin-top: auto;
+  border-top: 3px solid #3498db;
+}
+
+
+
+
+import React, { useState } from 'react';
+import Header from './Header';
+import ScoreSection from './ScoreSection';
+import GameSection from './GameSection';
+import Footer from './Footer';
+import styles from './FaceMatchGame.module.css';
+
+const FACE_POOL = ['😀', '😎', '😡', '🤢', '🤡', '🤠', '👽', '🤖', '👻', '🥳', '🤓', '🦊', '🐯', '🦁', '🦉'];
+
+export default function FaceMatchGame() {
+  const [score, setScore] = useState(0);
+  const [chances, setChances] = useState(3);
+  const [gridFaces, setGridFaces] = useState(Array(9).fill('❓'));
+  const [targetFace, setTargetFace] = useState('?');
+  const [message, setMessage] = useState('Click "Start Game" to begin!');
+  const [messageColor, setMessageColor] = useState('#333');
+  const [isGameActive, setIsGameActive] = useState(false);
+  const [wrongSelections, setWrongSelections] = useState([]);
+  const [correctSelection, setCorrectSelection] = useState(null);
+  const [btnText, setBtnText] = useState('Start Game');
+
+  const startRound = () => {
+    setIsGameActive(true);
+    setChances(3);
+    setWrongSelections([]);
+    setCorrectSelection(null);
+    setMessage('Find the matching face!');
+    setMessageColor('#333');
+
+    const shuffled = [...FACE_POOL].sort(() => 0.5 - Math.random());
+    const selectedFaces = shuffled.slice(0, 9);
+    setGridFaces(selectedFaces);
+
+    const randomTarget = selectedFaces[Math.floor(Math.random() * 9)];
+    setTargetFace(randomTarget);
+  };
+
+  const handleCardClick = (face, index) => {
+    if (!isGameActive || wrongSelections.includes(index) || correctSelection === index) return;
+
+    if (face === targetFace) {
+      setCorrectSelection(index);
+      setScore(prev => prev + 1);
+      setMessage('🎉 Correct! Well done!');
+      setMessageColor('#2ecc71');
+      setIsGameActive(false);
+      setBtnText('Play Next Round');
+    } else {
+      const nextChances = chances - 1;
+      setChances(nextChances);
+      setWrongSelections(prev => [...prev, index]);
+
+      if (nextChances <= 0) {
+        setMessage('💥 Game Over! You ran out of chances.');
+        setMessageColor('#e74c3c');
+        setIsGameActive(false);
+        setBtnText('Restart Game');
+      } else {
+        setMessage(`Wrong! You have ${nextChances} chances left.`);
+        setMessageColor('#e74c3c');
+      }
+    }
+  };
+
+  const handleActionBtn = () => {
+    if (btnText === 'Restart Game') {
+      setScore(0);
+    }
+    startRound();
+  };
+
+  return (
+    <div className={styles.appContainer}>
+      <Header />
+      <main className={styles.mainContent}>
+        <ScoreSection score={score} chances={chances} />
+        <GameSection
+          gridFaces={gridFaces}
+          targetFace={targetFace}
+          message={message}
+          messageColor={messageColor}
+          isGameActive={isGameActive}
+          wrongSelections={wrongSelections}
+          correctSelection={correctSelection}
+          btnText={btnText}
+          onCardClick={handleCardClick}
+          onActionBtnClick={handleActionBtn}
+        />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+
+
+
+
+
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+ -->
